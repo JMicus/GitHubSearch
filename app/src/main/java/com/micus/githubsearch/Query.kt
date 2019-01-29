@@ -8,6 +8,7 @@ class Query {
 
         fun create(text: String): String {
 
+            // TODO example query
             return "{\"query\": \"query { viewer { name } }\""
         }
     }

@@ -9,24 +9,57 @@
 
     <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
 
-        <EditText
-                android:id="@+id/etSearch"
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                android:orientation="horizontal"
+                android:layout_weight="0">
 
-        <ImageButton
-                android:src="@drawable/magnifier"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:scaleType="fitCenter"
-                android:layout_weight="0"
-                android:onClick="clickSearch"/>
+            <EditText
+                    android:id="@+id/etSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+            <ImageButton
+                    android:src="@drawable/magnifier"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:scaleType="fitCenter"
+                    android:layout_weight="0"
+                    android:onClick="clickSearch"/>
+
+        </LinearLayout>
+
+        <ListView
+                android:id="@+id/lvList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:dividerHeight="2dp">
+
+        </ListView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/llList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"/>
+
+        </ScrollView>
 
     </LinearLayout>
+
+
 
 
 </android.support.constraint.ConstraintLayout>

@@ -7,6 +7,10 @@ import android.view.View
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.util.Log
+import android.widget.AdapterView
+import android.widget.LinearLayout
+import android.widget.ListView
+import android.widget.ScrollView
 
 // Keep a reference to the NetworkFragment, which owns the AsyncTask object
 // that is used to execute network ops.
@@ -26,6 +30,8 @@ class MainActivity : AppCompatActivity(), DownloadCallback<String> {
         setContentView(R.layout.activity_main)
 
         mNetworkFragment = NetworkFragment.getInstance(supportFragmentManager, "https://api.github.com/graphql")
+
+
 
     }
 
@@ -48,6 +54,20 @@ class MainActivity : AppCompatActivity(), DownloadCallback<String> {
     override fun updateFromDownload(result: String?) {
         // Update your UI here based on result of download.
         Log.v(TAG, "RESULT: "+result)
+
+        // TODO list ist created with example data
+        val titles = arrayOf("one", "two", "three")
+        val lins = arrayOf("link1", "link2", "link3")
+
+        val repositoryList: MutableList<Repository> = ArrayList()
+        repositoryList.add(Repository("Example Project 1", "https://www.google.de", "Java", "example description text blablabla"))
+        repositoryList.add(Repository("Example Project 2", "https://www.google.de", "C#", "descriptiondescription description description description description description"))
+
+        var listView = findViewById<ListView>(R.id.lvList)
+
+        val adapter = CustomAdapter(this, repositoryList)
+        listView.adapter = adapter
+        listView.setOnItemClickListener(adapter)
     }
 
     override fun getActiveNetworkInfo(): NetworkInfo {
@@ -75,5 +95,7 @@ class MainActivity : AppCompatActivity(), DownloadCallback<String> {
         mDownloading = false
         mNetworkFragment?.cancelDownload()
     }
+
+
 
 }
