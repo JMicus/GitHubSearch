@@ -79,7 +79,6 @@ internal class DownloadTask(callback: DownloadCallback<String>)
     fun sendPostRequest(): DownloadTask.Result? {
         var result: Result? = null
 
-        // token  4e4c46095a8e62b597dd668d866b662fd215f35d
         val mURL = URL("https://api.github.com/graphql")
 
         try {
@@ -87,15 +86,15 @@ internal class DownloadTask(callback: DownloadCallback<String>)
                 // optional default is GET
                 requestMethod = "POST"
 
-                readTimeout = 2000
-                connectTimeout = 2000
+                //readTimeout = 2000
+                //connectTimeout = 2000
 
-                setRequestProperty("Authorization", "bearer 4e4c46095a8e62b597dd668d866b662fd215f35d")
+                setRequestProperty("Authorization", "bearer  c76d37a0f98e738456d9"+"9ab5f424e9a331d2b910")
 
                 val wr = OutputStreamWriter(getOutputStream());
 
                 // TODO example request
-                var request = "{ \"query\": \"query { viewer { login }}\" }"
+                var request = Query.create("example")
 
                 Log.v(TAG, request.toString())
 
@@ -146,5 +145,6 @@ internal class DownloadTask(callback: DownloadCallback<String>)
      * Override to add special behavior for cancelled AsyncTask.
      */
     override fun onCancelled(result: Result) {}
+
 
 }
