@@ -1,0 +1,118 @@
+{
+  "data": {
+    "search": {
+      "edges": [
+        {
+          "node": {
+            "name": "example",
+            "description": "Go example projects",
+            "url": "https://github.com/golang/example",
+            "primaryLanguage": {
+              "color": "#375eab",
+              "name": "Go"
+            }
+          }
+        },
+        {
+          "node": {
+            "name": "TensorFlow-Examples",
+            "description": "TensorFlow Tutorial and Examples for Beginners with Latest APIs",
+            "url": "https://github.com/aymericdamien/TensorFlow-Examples",
+            "primaryLanguage": {
+              "color": "#DA5B0B",
+              "name": "Jupyter Notebook"
+            }
+          }
+        },
+        {
+          "node": {
+            "name": "examples",
+            "description": "A set of examples around pytorch in Vision, Text, Reinforcement Learning, etc.",
+            "url": "https://github.com/pytorch/examples",
+            "primaryLanguage": {
+              "color": "#3572A5",
+              "name": "Python"
+            }
+          }
+        },
+        {
+          "node": {
+            "name": "example",
+            "description": "Cake example repository",
+            "url": "https://github.com/cake-build/example",
+            "primaryLanguage": {
+              "color": "#012456",
+              "name": "PowerShell"
+            }
+          }
+        },
+        {
+          "node": {
+            "name": "ansible-examples",
+            "description": "A few starter examples of ansible playbooks, to show features and how they work together.  See http://galaxy.ansible.com for example roles from the Ansible community for deploying many popular applications.",
+            "url": "https://github.com/ansible/ansible-examples",
+            "primaryLanguage": {
+              "color": "#89e051",
+              "name": "Shell"
+            }
+          }
+        },
+        {
+          "node": {
+            "name": "models",
+            "description": "Models and examples built with TensorFlow",
+            "url": "https://github.com/tensorflow/models",
+            "primaryLanguage": {
+              "color": "#3572A5",
+              "name": "Python"
+            }
+          }
+        },
+        {
+          "node": {
+            "name": "shiro-example",
+            "description": "跟我学Shiro（我的公众号：kaitao-1234567，我的新书：《亿级流量网站架构核心技术》） ",
+            "url": "https://github.com/zhangkaitao/shiro-example",
+            "primaryLanguage": {
+              "color": "#e34c26",
+              "name": "HTML"
+            }
+          }
+        },
+        {
+          "node": {
+            "name": "Python",
+            "description": "My Python Examples",
+            "url": "https://github.com/geekcomputers/Python",
+            "primaryLanguage": {
+              "color": "#3572A5",
+              "name": "Python"
+            }
+          }
+        },
+        {
+          "node": {
+            "name": "examples",
+            "description": "Serverless Examples – A collection of boilerplates and examples of serverless architectures built with the Serverless Framework on AWS Lambda, Microsoft Azure, Google Cloud Functions, and more.",
+            "url": "https://github.com/serverless/examples",
+            "primaryLanguage": {
+              "color": "#f1e05a",
+              "name": "JavaScript"
+            }
+          }
+        },
+        {
+          "node": {
+            "name": "example",
+            "description": "Starting point for using the Vapor framework.",
+            "url": "https://github.com/vapor-community/example",
+            "primaryLanguage": {
+              "color": "#ffac45",
+              "name": "Swift"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

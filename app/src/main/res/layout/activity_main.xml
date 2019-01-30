@@ -8,10 +8,28 @@
         tools:context=".MainActivity">
 
     <LinearLayout
+            android:id="@+id/llMain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:gravity="center">
+
+        <ImageView
+                android:id="@+id/ivIcon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/icon_big"
+                android:scaleType="fitCenter"/>
+
+        <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:text="@string/app_name"/>
 
         <LinearLayout
                 android:layout_width="match_parent"
@@ -21,41 +39,31 @@
 
             <EditText
                     android:id="@+id/etSearch"
+                    android:hint="@string/search_hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
 
-            <ImageButton
+            <ImageView
                     android:src="@drawable/magnifier"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:scaleType="fitCenter"
                     android:layout_weight="0"
+                    android:clickable="true"
                     android:onClick="clickSearch"/>
 
         </LinearLayout>
 
         <ListView
                 android:id="@+id/lvList"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:dividerHeight="2dp">
 
         </ListView>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <LinearLayout
-                android:id="@+id/llList"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"/>
-
-        </ScrollView>
 
     </LinearLayout>
 

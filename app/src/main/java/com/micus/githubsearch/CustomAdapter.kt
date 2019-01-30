@@ -11,6 +11,7 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import android.support.v4.content.ContextCompat.startActivity
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 
 
@@ -47,6 +48,7 @@ class CustomAdapter(private val mainActivity: MainActivity, private val dataSour
 
         tvTitle.text = repository.title
         tvLanguage.text = repository.language
+        tvLanguage.setTextColor(Color.parseColor(repository.color))
         tvDescription.text = repository.description
 
         return rowView

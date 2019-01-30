@@ -1,9 +1,17 @@
 package com.micus.githubsearch
 
+import android.app.Instrumentation
+import android.content.res.AssetManager
+import android.util.Log
 import me.lazmaid.kraph.Kraph
+import org.json.JSONObject
 import org.junit.Test
 
 import org.junit.Assert.*
+import java.io.BufferedReader
+import java.io.FileInputStream
+import java.io.InputStream
+import java.io.InputStreamReader
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -54,5 +62,36 @@ class ExampleUnitTest {
         println(query2.toRequestString())
 
         println(queryString3)
+    }
+
+    @Test
+    fun loadJSON() {
+
+        try {
+            //val inputStream: InputStream = AssetManager.AssetInputStream("exampleResponse.json")
+            //val inputStreamReader = InputStreamReader(inputStream)
+
+            val sb = StringBuilder()
+            var line: String?
+            //val br = BufferedReader(inputStreamReader)
+
+            val br = BufferedReader(InputStreamReader(FileInputStream("../app/src/main/assets/exampleResponse.json")))
+
+            line = br.readLine()
+            while (br.readLine() != null) {
+                sb.append(line)
+                line = br.readLine()
+            }
+            br.close()
+            println(sb.toString())
+
+            var json = JSONObject(sb.toString())
+
+
+        } catch (e:Exception){
+            e.printStackTrace()
+        }
+
+
     }
 }

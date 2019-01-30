@@ -32,4 +32,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation "me.lazmaid.kraph:kraph:0.6.0"
+
+    implementation 'com.beust:klaxon:5.0.1'
 }

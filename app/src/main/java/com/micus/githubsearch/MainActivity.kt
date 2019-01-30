@@ -6,11 +6,10 @@ import android.os.Bundle
 import android.view.View
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
+import android.opengl.Visibility
 import android.util.Log
-import android.widget.AdapterView
-import android.widget.LinearLayout
-import android.widget.ListView
-import android.widget.ScrollView
+import android.view.Gravity
+import android.widget.*
 
 // Keep a reference to the NetworkFragment, which owns the AsyncTask object
 // that is used to execute network ops.
@@ -31,12 +30,48 @@ class MainActivity : AppCompatActivity(), DownloadCallback<String> {
 
         mNetworkFragment = NetworkFragment.getInstance(supportFragmentManager, "https://api.github.com/graphql")
 
-
+        // hide action bar
+        val actionBar = supportActionBar
+        actionBar?.hide()
 
     }
 
+    override fun onBackPressed() {
+
+        // change view to show list
+        var ivIcon = findViewById<ImageView>(R.id.ivIcon)
+
+        if (ivIcon.visibility == View.VISIBLE) super.onBackPressed()
+
+        else {
+            var llMain = findViewById<LinearLayout>(R.id.llMain)
+            var lvList = findViewById<ListView>(R.id.lvList)
+
+            var tvTitle = findViewById<TextView>(R.id.tvTitle)
+
+
+            llMain.setVerticalGravity(Gravity.CENTER)
+            lvList.visibility = View.GONE
+            ivIcon.visibility = View.VISIBLE
+            tvTitle.visibility = View.VISIBLE
+        }
+
+    }
+
+
     fun clickSearch(view: View) {
         Log.v(TAG, "search clicked")
+
+        // change view to show list
+        var llMain = findViewById<LinearLayout>(R.id.llMain)
+        var lvList = findViewById<ListView>(R.id.lvList)
+        var ivIcon = findViewById<ImageView>(R.id.ivIcon)
+        var tvTitle = findViewById<TextView>(R.id.tvTitle)
+
+        llMain.setVerticalGravity(Gravity.TOP)
+        lvList.visibility = View.VISIBLE
+        ivIcon.visibility = View.GONE
+        tvTitle.visibility = View.GONE
 
         startDownload()
     }
@@ -55,19 +90,19 @@ class MainActivity : AppCompatActivity(), DownloadCallback<String> {
         // Update your UI here based on result of download.
         Log.v(TAG, "RESULT: "+result)
 
-        // TODO list ist created with example data
-        val titles = arrayOf("one", "two", "three")
-        val lins = arrayOf("link1", "link2", "link3")
+
+        // TODO list is created with example data
 
         val repositoryList: MutableList<Repository> = ArrayList()
-        repositoryList.add(Repository("Example Project 1", "https://www.google.de", "Java", "example description text blablabla"))
-        repositoryList.add(Repository("Example Project 2", "https://www.google.de", "C#", "descriptiondescription description description description description description"))
+        repositoryList.add(Repository("example", "https://github.com/golang/example", "Go", "#375eab", "Go example projects"))
+        repositoryList.add(Repository("TensorFlow-Examples", "https://github.com/aymericdamien/TensorFlow-Examples", "Jupyter Notebook", "#DA5B0B", "TensorFlow Tutorial and Examples for Beginners with Latest APIs"))
+        repositoryList.add(Repository("examples", "https://github.com/pytorch/examples", "Python", "#3572A5", "A set of examples around pytorch in Vision, Text, Reinforcement Learning, etc."))
 
-        var listView = findViewById<ListView>(R.id.lvList)
 
+        var lvList = findViewById<ListView>(R.id.lvList)
         val adapter = CustomAdapter(this, repositoryList)
-        listView.adapter = adapter
-        listView.setOnItemClickListener(adapter)
+        lvList.adapter = adapter
+        lvList.setOnItemClickListener(adapter)
     }
 
     override fun getActiveNetworkInfo(): NetworkInfo {
