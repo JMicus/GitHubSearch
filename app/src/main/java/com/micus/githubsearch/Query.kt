@@ -1,25 +1,33 @@
 package com.micus.githubsearch
 
-import me.lazmaid.kraph.Kraph
+
 
 class Query {
 
     companion object {
 
-        fun create(text: String): String {
+        fun create(query: String, results: String, direction: String, cursor: String): String {
 
             // TODO example query
-            return "{\"query\": \"query { viewer { name } }\""
 
-            /*  query
 
-                {
+            //var query = "{ viewer { name } }"
+
+            //var query = "{ search (query:Example, type:REPOSITORY, first:2) { edges { cursor }}}"
+
+            var first_last = "first"
+            if (direction.equals("before")) first_last = "last"
+
+
+            var queryString = """{
                   search (
-                    query: "Example"
-                    type: REPOSITORY
-                    first: 10
+                    query:$query,
+                    type:REPOSITORY,
+                    $first_last:$results,
+                    $direction:${cursor.replace("=", "")}
                   ) {
                     edges {
+                      cursor
                       node {
                         ... on Repository {
                           name
@@ -34,8 +42,9 @@ class Query {
                     }
                   }
                 }
+                """.replace("\n", "")
 
-            */
+            return "{\"query\": \"$queryString\""
         }
     }
 }

@@ -66,20 +66,23 @@ internal class DownloadTask(callback: DownloadCallback<String>)
     /**
      * Defines work to perform on the background thread.
      */
-    override fun doInBackground(vararg urls: String): DownloadTask.Result? {
+    override fun doInBackground(vararg args: String): DownloadTask.Result? {
         var result: Result? = null
-        if (!isCancelled && urls.isNotEmpty()) {
+        if (!isCancelled && args.isNotEmpty()) {
 
-            result = sendPostRequest()
+            // TODO example request
+            var request = Query.create(args[1], args[2], args[3], args[4])
+
+            result = sendPostRequest(args[0], request)
 
         }
         return result
     }
 
-    fun sendPostRequest(): DownloadTask.Result? {
+    fun sendPostRequest(url: String, request: String): DownloadTask.Result? {
         var result: Result? = null
 
-        val mURL = URL("https://api.github.com/graphql")
+        val mURL = URL(url)
 
         try {
             with(mURL.openConnection() as HttpURLConnection) {
@@ -91,10 +94,7 @@ internal class DownloadTask(callback: DownloadCallback<String>)
 
                 setRequestProperty("Authorization", "bearer  c76d37a0f98e738456d9"+"9ab5f424e9a331d2b910")
 
-                val wr = OutputStreamWriter(getOutputStream());
-
-                // TODO example request
-                var request = Query.create("example")
+                val wr = OutputStreamWriter(getOutputStream())
 
                 Log.v(TAG, request.toString())
 
@@ -137,7 +137,6 @@ internal class DownloadTask(callback: DownloadCallback<String>)
                 updateFromDownload(resultValue)
                 return
             }
-            finishDownloading()
         }
     }
 

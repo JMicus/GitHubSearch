@@ -2,4 +2,6 @@
     <string name="app_name">GitHub Search</string>
 
     <string name="search_hint">search GitHub</string>
+
+    <string name="url">"https://api.github.com/graphql"</string>
 </resources>

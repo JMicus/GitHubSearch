@@ -28,9 +28,4 @@ interface DownloadCallback<T> {
      */
     fun onProgressUpdate(progressCode: Int, percentComplete: Int)
 
-    /**
-     * Indicates that the download operation has finished. This method is called even if the
-     * download hasn't completed successfully.
-     */
-    fun finishDownloading()
 }

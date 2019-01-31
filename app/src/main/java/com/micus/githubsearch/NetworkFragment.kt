@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 
 private const val TAG = "NetworkFragment"
 private const val URL_KEY = "UrlKey"
+private const val QUERY_KEY = "QueryKey"
 
 class NetworkFragment : Fragment() {
     private var mCallback: DownloadCallback<String>? = null
@@ -55,11 +56,11 @@ class NetworkFragment : Fragment() {
     /**
      * Start non-blocking execution of DownloadTask.
      */
-    fun startDownload() {
+    fun startDownload(query: String, results: Int, direction: String, cursor: String) {
         cancelDownload()
         mCallback?.also { callback ->
             mDownloadTask = DownloadTask(callback).apply {
-                execute(mUrlString)
+                execute(mUrlString, query, results.toString(), direction, cursor)
             }
         }
     }

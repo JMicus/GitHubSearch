@@ -2,7 +2,8 @@ package com.micus.githubsearch
 
 import android.graphics.Color
 
-class Repository (internal val title: String,
+class Repository (internal val cursor: String,
+                  internal val title: String,
                   internal val link: String,
                   internal val language: String,
                   internal val color: String,

@@ -42,7 +42,9 @@
                     android:hint="@string/search_hint"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890-/."
+                    android:inputType="textFilter"/>
 
             <ImageView
                     android:src="@drawable/magnifier"
@@ -64,6 +66,36 @@
                 android:dividerHeight="2dp">
 
         </ListView>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="0">
+
+            <ImageView
+                    android:id="@+id/ivLeft"
+                    android:src="@drawable/left"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:scaleType="fitCenter"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:onClick="clickLeft"
+                    android:visibility="invisible"/>
+
+            <ImageView
+                    android:id="@+id/ivRight"
+                    android:src="@drawable/right"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:scaleType="fitCenter"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:onClick="clickRight"
+                    android:visibility="invisible"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
